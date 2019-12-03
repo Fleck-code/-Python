@@ -3,3 +3,13 @@
 Сформировать итоговый массив чисел, соответствующих требованию.
 Элементы вывести в порядке их следования в исходном списке. Для выполнения задания обязательно использовать генератор.
 """
+
+import random
+
+randlist = [random.randint(1, 15) for _ in range(15)]
+
+result = list()
+for i in randlist:
+    if randlist.count(i) == 1:
+        result.append(i)
+print(result)

@@ -5,3 +5,16 @@
 а в цикле необходимо выводить только первые 15 чисел.
 Подсказка: факториал числа n — произведение чисел от 1 до n. Например, факториал четырёх 4! = 1 * 2 * 3 * 4 = 24.
 """
+
+from math import factorial
+
+
+def fibo_gen():
+    for i in range(1, 20):
+        yield i
+
+
+for el in fibo_gen():
+    print(factorial(el))
+    if el >= 15:
+        break
