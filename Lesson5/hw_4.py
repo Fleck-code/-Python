@@ -9,3 +9,18 @@ Four — 4
 Новый блок строк должен записываться в новый текстовый файл.
 """
 
+dic = {
+    'One': 'Один',
+    'Two': 'Два',
+    'Three': 'Три',
+    'Four': 'Четыре'
+}
+i = 0
+new = open('new_txt_4.txt', 'w')
+with open('txt_4.txt') as f:
+    for line in f:
+        a = list(line.split())
+        a[0] = dic[a[0]]
+        i += 2
+        new.writelines(a)
+new.close()

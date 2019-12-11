@@ -14,3 +14,23 @@
 Подсказка: использовать менеджеры контекста.
 """
 
+import json
+
+average_profit = 0
+a = dict()
+i = 0
+b = list()
+with open('txt_7.txt') as f:
+    for line in f:
+        line_split = line.split()
+        firm_name = line_split[0]
+        profit = int(line_split[2]) - int(line_split[3])
+        a[firm_name] = profit
+        if profit >= 0:
+            average_profit += profit
+        i += 1
+    c = {'average_profit': average_profit / i}
+    b.append(a)
+    b.append(c)
+with open('txt_7_json.json', 'w') as jfile:
+    json.dump(b, jfile)

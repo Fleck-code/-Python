@@ -4,3 +4,17 @@
 Выполнить подсчет средней величины дохода сотрудников.
 """
 
+user_count = 0
+sum = 0
+str_count = 0
+with open('txt_3.txt') as f:
+    for zp in f:
+        a = zp.split()
+        if int(a[1]) < 20000:
+            print('у сотрудника', a[0], 'заработная плата меньше 20000')
+            user_count += 1
+        sum = sum + int(a[1])
+        str_count += 1
+    avg_zp = sum / str_count
+    print('количество бомжей в компании:', user_count)
+    print('средний доход сотрудников:', avg_zp)

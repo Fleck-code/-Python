@@ -12,3 +12,18 @@
 {“Информатика”: 170, “Физика”: 40, “Физкультура”: 30}
 """
 
+sum = 0
+a = dict()
+number = str()
+with open('txt_6.txt') as f:
+    for line in f:
+        b = line.split()
+        name = b[0]
+        sum = b[1:]
+        a[name] = 0
+        for i in sum:
+            try:
+                a[name] += int(i[:i.find('(')])
+            except ValueError:
+                pass
+print(a)
