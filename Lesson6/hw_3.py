@@ -10,20 +10,20 @@ income (доход). Последний атрибут должен быть з�
 
 
 class Worker:
-    name = ''
-    surname = ''
-    position = ''
     dohod = {'wage': 0, 'bonus': 0}
-    _income = dohod['wage'] + dohod['bonus']
 
-
-class Position(Worker):
     def __init__(self, name, surname, position, wage, bonus):
         self.name = name
         self.surname = surname
         self.position = position
         self.dohod['wage'] = wage
         self.dohod['bonus'] = bonus
+
+
+class Position(Worker):
+    def __init__(self, name, surname, position, wage, bonus):
+        super().__init__(name, surname, position, wage, bonus)
+        self._income = self.dohod['wage'] + self.dohod['bonus']
 
     def get_full_name(self):
         print('Сотрудник', self.name, self.surname, self.position)

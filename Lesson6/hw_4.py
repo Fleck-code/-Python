@@ -11,13 +11,14 @@ is_police (булево). А также методы: go, stop, turn(direction),
 
 
 class Car:
-    speed = 0
-    color = None
-    name = None
-    is_police = False
+
+    def __init__(self, name, color):
+        self.color = color
+        self.name = name
+        self.is_police = False
 
     def go(self):
-        if self.is_police == True:
+        if self.is_police:
             print('полицейская машина', self.name, self.color, 'выехала')
         else:
             print(self.name, self.color, 'поехала')
@@ -35,10 +36,8 @@ class Car:
 
 
 class TownCar(Car):
-    def __init__(self, name, color, is_police):
-        self.name = name
-        self.color = color
-        self.is_police = is_police
+    def __init__(self, name, color):
+        super().__init__(name, color)
 
     def show_speed(self, speed):
         self.speed = speed
@@ -48,10 +47,9 @@ class TownCar(Car):
 
 
 class WorkCar(Car):
-    def __init__(self, name, color, is_police):
-        self.name = name
+    def __init__(self, name, color):
+        super().__init__(name, color)
         self.color = color
-        self.is_police = is_police
 
     def show_speed(self, speed):
         self.speed = speed
@@ -61,23 +59,20 @@ class WorkCar(Car):
 
 
 class SportCar(Car):
-    def __init__(self, name, color, is_police):
-        self.name = name
-        self.color = color
-        self.is_police = is_police
+    def __init__(self, name, color):
+        super().__init__(name, color)
 
 
 class PoliceCar(Car):
-    def __init__(self, name, color, is_police):
-        self.name = name
-        self.color = color
-        self.is_police = is_police
+    def __init__(self, name, color):
+        super().__init__(name, color)
+        self.is_police = True
 
 
-Police = PoliceCar('lada', 'blue', True)
-Sport = SportCar('ferrari', 'yellow', False)
-Work = WorkCar('gaz', 'white', False)
-Town = TownCar('kia', 'black', False)
+Police = PoliceCar('lada', 'blue')
+Sport = SportCar('ferrari', 'yellow')
+Work = WorkCar('gaz', 'white')
+Town = TownCar('kia', 'black')
 Sport.go()
 Sport.show_speed(140)
 Work.go()

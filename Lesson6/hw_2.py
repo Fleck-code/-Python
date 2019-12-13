@@ -10,11 +10,11 @@
 
 
 class Road:
-    def __init__(self, _Length, _width):
-        self._Length = _Length
+    def __init__(self, _length, _width):
+        self._Length = _length
         self._width = _width
-        result = _Length * _width * 25 * 5 / 1000
-        print(f'{_Length}м*{_width}м*25кг*5см =', int(result), 'т')
+        result = _length * _width * 25 * 5 / 1000
+        print(f'{_length}м*{_width}м*25кг*5см =', int(result), 'т')
 
 
 asphalt = Road(20, 5000)
