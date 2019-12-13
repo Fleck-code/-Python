@@ -1,5 +1,0 @@
-Ivanov 55000
-Petrov 300000
-Sidorov 19000
-Kravcov 40000
-Bomzh 5000
