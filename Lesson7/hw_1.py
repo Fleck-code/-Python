@@ -10,4 +10,33 @@
 первым элементом первой строки второй матрицы и т.д.
 """
 
-#  Сдам ДЗ 19 декабря.
+
+class Matrix:
+    def __init__(self, *args):
+        self.args = args
+
+    def __str__(self):
+        return str('\n'.join(['\t'.join([str(r) for r in i]) for i in self.args]))
+
+    def __add__(self, other):
+        res = []
+        a = []
+        if len(self.args) == len(other.args):
+            for i in range(len(self.args)):
+                for r in range(len(self.args[i])):
+                    a.append(self.args[i][r] + other.args[i][r])
+                    if len(a) == len(self.args[i]):
+                        res.append(a)
+                        a = []
+        else:
+            print('Матрица должна быть одинаковой по размеру')
+        return res
+
+
+matrix_1 = Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+matrix_2 = Matrix([[3, 2, 1], [6, 5, 4], [9, 8, 7]])
+print(matrix_1)
+print(matrix_2)
+print(matrix_1 + matrix_2)
+
+#  не понял как матрицы отобразить по рядам и без скобочек

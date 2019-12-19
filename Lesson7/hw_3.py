@@ -22,3 +22,37 @@
 Тогда метод make_order() вернет строку: **\n\n***.
 """
 
+
+class Kletka:
+    def __init__(self, num):
+        self.num = num
+
+    def __str__(self):
+        return self.num
+
+    def __add__(self, other):
+        return f'Сумма клеток: {self.num + other.num}'
+
+    def __sub__(self, other):
+        if self.num - other.num > 0:
+            return f'Вычитание клеток: {self.num - other.num}'
+        else:
+            return 'вычитание невозможно'
+
+    def __mul__(self, other):
+        return f'Умножение клеток: {self.num * other.num}'
+
+    def __truediv__(self, other):
+        return f'Деление клеток: {round(self.num / other.num)}'
+
+    def make_order(self, count):
+        return '\n'.join(['*' * count for i in range(self.num // count)]) + '\n' + '*' * (self.num % count)
+
+
+kletka_1 = Kletka(20)
+kletka_2 = Kletka(10)
+print(kletka_1 + kletka_2)
+print(kletka_1 - kletka_2)
+print(kletka_1 * kletka_2)
+print(kletka_1 / kletka_2)
+print(kletka_2.make_order(8))

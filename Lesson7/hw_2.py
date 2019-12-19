@@ -9,3 +9,39 @@
 классы для основных классов проекта, проверить на практике работу декоратора @property.
 """
 
+from abc import ABC, abstractmethod
+
+
+class Cloth(ABC):
+    def __init__(self, param):
+        self.param = param
+
+    @abstractmethod
+    def tkani(self):
+        pass
+
+
+class Palto(Cloth):
+    def __init__(self, v):
+        super().__init__(v)
+
+    @property
+    def tkani(self):
+        res = round(self.param / 6.5) + 0.5
+        return f'Ткани на пальто потребуется: {res}'
+
+
+class Costum(Cloth):
+    def __init__(self, h):
+        super().__init__(h)
+
+    @property
+    def tkani(self):
+        res = 2 * self.param + 0.3
+        return f'Ткани на костюм потребуется: {res}'
+
+
+palto_1 = Palto(int(input('Введите размер для пальто: ')))
+costum_1 = Costum(int(input('Введите свой рост: ')))
+print(palto_1.tkani)
+print(costum_1.tkani)
