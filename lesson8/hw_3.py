@@ -10,3 +10,26 @@
 отобразить соответствующее сообщение. При этом работа скрипта не должна завершаться.
 """
 
+
+class OwnError(Exception):
+    def __init__(self, txt):
+        self.txt = txt
+
+
+end = True
+my_list = []
+while end:
+    a = input("Введите число: ")
+    try:
+        a = int(a)
+    except ValueError:
+        if a in 'stop':
+            print('Вы ввели "stop". Итоговый список: ', my_list)
+            end = False
+        else:
+            print("Вы ввели не число")
+    except OwnError as err:
+        print(err)
+    else:
+        my_list.append(a)
+        print(f"Все хорошо. Ваш список: {my_list}\n Если хотите остановиться введите 'stop'")
